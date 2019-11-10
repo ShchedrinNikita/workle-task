@@ -56,12 +56,18 @@ export default {
       font-style: bold;
       text-align: left;
       cursor: pointer;
+      &:hover {
+        color: black;
+      }
     }
     .name-and-link .link {
       font-size: 0.6rem;
       color: grey;
       text-align: left;
       cursor: pointer;
+      &:hover {
+        color: black;
+      }
     }
   }
   .card-image {

@@ -2,7 +2,7 @@
   <div class="pagination">
     <router-link
       :to="{ name: 'Set', params: { page: 1}}"
-      v-if="this.$route.params.page !== 1"
+      v-if="this.$route.params.page != 1"
       class="page-number"
     >1</router-link>
     <div v-if="this.$route.params.page > 3" class="dots">...</div>
@@ -20,7 +20,7 @@
     <div v-if="this.$route.params.page < pages-2" class="dots">...</div>
     <router-link
       :to="{ name: 'Set', params: { page: pages}}"
-      v-if="this.$route.params.page !== pages"
+      v-if="this.$route.params.page != pages"
       class="page-number"
     >{{pages}}</router-link>
   </div>
