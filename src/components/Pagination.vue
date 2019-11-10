@@ -1,20 +1,28 @@
 <template>
   <div class="pagination">
-    <div @click="onClick(1)" v-if="currentPage !== 1" class="page-number">1</div>
-    <div v-if="currentPage > 3" class="dots">...</div>
-    <div
-      @click="onClick(currentPage-1)"
-      v-if="currentPage > 2"
+    <router-link
+      :to="{ name: 'Set', params: { page: 1}}"
+      v-if="this.$route.params.page !== 1"
       class="page-number"
-    >{{currentPage-1}}</div>
-    <div class="page-number active">{{currentPage}}</div>
-    <div
-      @click="onClick(currentPage+1)"
-      v-if="currentPage < pages-1"
+    >1</router-link>
+    <div v-if="this.$route.params.page > 3" class="dots">...</div>
+    <router-link
+      :to="{ name: 'Set', params: { page: +this.$route.params.page-1}}"
+      v-if="this.$route.params.page > 2"
       class="page-number"
-    >{{currentPage+1}}</div>
-    <div v-if="currentPage < pages-2" class="dots">...</div>
-    <div @click="onClick(pages)" v-if="currentPage !== pages" class="page-number">{{pages}}</div>
+    >{{this.$route.params.page-1}}</router-link>
+    <div class="page-number active">{{+this.$route.params.page}}</div>
+    <router-link
+      :to="{ name: 'Set', params: { page: +this.$route.params.page+1}}"
+      v-if="this.$route.params.page < pages-1"
+      class="page-number"
+    >{{+this.$route.params.page+1}}</router-link>
+    <div v-if="this.$route.params.page < pages-2" class="dots">...</div>
+    <router-link
+      :to="{ name: 'Set', params: { page: pages}}"
+      v-if="this.$route.params.page !== pages"
+      class="page-number"
+    >{{pages}}</router-link>
   </div>
 </template>
 
@@ -23,13 +31,7 @@ import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "Pagination",
-  methods: {
-    ...mapActions(["fetchCards"]),
-    onClick(page) {
-      this.fetchCards(page);
-    }
-  },
-  computed: mapGetters(["allCards", "currentPage", "pages"])
+  computed: mapGetters(["pages"])
 };
 </script>
 
@@ -45,6 +47,7 @@ export default {
   align-items: center;
   justify-content: center;
   .page-number {
+    text-decoration: none;
     font-size: 1rem;
     opacity: 1;
     color: white;

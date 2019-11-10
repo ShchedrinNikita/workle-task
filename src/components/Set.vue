@@ -12,8 +12,15 @@ export default {
   name: "Set",
   methods: mapActions(["fetchCards"]),
   computed: mapGetters(["allCards"]),
+  watch: {
+    $route(to, from) {
+      var pageNumber = this.$route.params.page;
+      this.fetchCards(pageNumber);
+    }
+  },
   created() {
-    this.fetchCards();
+    var pageNumber = this.$route.params.page;
+    this.fetchCards(pageNumber);
   },
   components: {
     Card

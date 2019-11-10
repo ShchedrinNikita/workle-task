@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Set />
+    <!-- <Set /> -->
     <Pagination />
     <router-view />
   </div>
