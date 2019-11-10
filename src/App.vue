@@ -2,6 +2,7 @@
   <div id="app">
     <Set />
     <Pagination />
+    <router-view />
   </div>
 </template>
 

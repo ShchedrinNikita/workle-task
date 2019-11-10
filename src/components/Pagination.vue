@@ -49,6 +49,12 @@ export default {
     opacity: 1;
     color: white;
     padding: 10px;
+    cursor: pointer;
+    &:hover {
+      transition: 0.3s;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
     &.active {
       font-size: 1.5rem;
     }
