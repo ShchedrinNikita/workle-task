@@ -54,6 +54,7 @@ export default {
     .name-and-link .name {
       font-size: 0.8rem;
       font-style: bold;
+      text-align: left;
       cursor: pointer;
     }
     .name-and-link .link {

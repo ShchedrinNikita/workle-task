@@ -11,7 +11,6 @@ import Card from "./Card";
 export default {
   name: "Set",
   methods: mapActions(["fetchCards"]),
-
   computed: mapGetters(["allCards"]),
   created() {
     this.fetchCards();
@@ -29,5 +28,21 @@ export default {
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 1rem;
   margin-bottom: 60px;
+}
+@media (max-width: 768px) {
+  .cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 360px;
+  }
+}
+@media (max-width: 480px) {
+  .cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 320px;
+  }
 }
 </style>
